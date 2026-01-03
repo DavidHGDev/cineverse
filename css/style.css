@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1e272e; /* Fondo oscuro elegante */
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    padding-top: 80px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #1e272e;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    z-index: 1000; /*Asegura que flote encima de las películas*/
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header #form-container {
+    display: flex;
+    gap: 10px;
+}
+
+#inputBuscar {
+    background-color: transparent;
+    border: 2px solid #fff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    color: white;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s;
+
+    /* Agregamos una lupa usando una imagen de fondo (SVG codificado) */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 10px center; /* Posición del icono */
+    padding-left: 40px; /* Espacio para que el texto no tape el icono */
+}
+
+#inputBuscar:focus {
+    background-color: white;
+    color: #1e272e;
+    width: 350px;
+    border-color: #e84118;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+}
+
+.contenedor {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+}
+
+.pelicula {
+    text-align: center;
+}
+
+.pelicula .titulo {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.pelicula .poster {
+    width: 100%; /* imagen ocupe todo el ancho disp del contenedor*/
+    border-radius: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    transition: transform 0.3s;
+}
+
+.pelicula .poster:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.paginacion {
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.paginacion button {
+    background-color: #e84118;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.paginacion button:hover {
+    background-color: #c23616;
+}
+
+@media(max-width: 700px){
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+        gap: 10px;
+        height: auto;
+    }
+    .contenedor {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 10px;
+    }
+    #inputBuscar {
+        background-color: transparent;
+        border: 2px solid #fff;
+        padding: 5px 10px;
+    }
+    .paginacion {
+        padding: 0 10px;
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .paginacion button {
+        padding: 5px 10px;
+    }
+}
